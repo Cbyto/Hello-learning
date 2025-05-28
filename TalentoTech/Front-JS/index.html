@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TalentoTech - Front-End</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css "/>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+  <body id="top">
+  
+    <!-- NAV -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/img/isologo.png" alt="Logo">
+      </div>
+          
+      <!-- Checkbox para activar/desactivar menú móvil -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
+      
+  	<!-- Enlaces del menú -->
+      <ul class="nav-links">
+        <li><a href="#empresa">Empresa</a></li>
+        <li><a href="#soporte">Soporte Técnico</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+  	    <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+    </nav>
+  
+    <!-- HERO -->
+    <section class="hero">    
+		<div class="hero-content">
+			<div class="hero-text">
+				<h1>Expertos en Desarrollo</h1>
+				<a href="#empresa" class="btn">Conócenos</a>
+			</div>
+		</div>
+    </section>
+  
+    <!-- CARDS SECTION -->
+    <section class="cards-section" id="empresa">
+      <h2>Soluciones Innovadoras y a Medida</h2>
+      <div class="cards-container">
+
+        <div class="card">
+          <div class="card-image">
+            <img src="assets/img/img_mision.jpg" alt="Misión" />
+            <div class="card-overlay">
+              <p>Somos expertos en desarrollo de software.</p>
+            </div>
+          </div>
+          <h3>Misión</h3>
+          <div class="extra-content">
+            <p>En TalentoTech, nuestra misión es ofrecer soluciones de software innovadoras, confiables y adaptadas a las necesidades específicas de cada cliente, garantizando la máxima calidad y compromiso.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="assets/img/img_vision.jpg" alt="Visión" />
+            <div class="card-overlay">
+              <p>Nuestra visión es transformar ideas en soluciones digitales reales.</p>
+            </div>
+          </div>
+          <h3>Visión</h3>
+          <div class="extra-content">
+            <p>Aspiramos a ser líderes en innovación tecnológica, ayudando a empresas a crecer mediante la digitalización efectiva y el desarrollo de software que aporte valor real y duradero.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="assets/img/img_calidad.jpg" alt="Calidad" />
+            <div class="card-overlay">
+              <p>Trabajamos con pasión, compromiso y honestidad.</p>
+            </div>
+          </div>
+          <h3>Calidad</h3>
+          <div class="extra-content">
+            <p>La calidad para nosotros no es negociable: aplicamos buenas prácticas, control de calidad y mejora continua para entregar siempre lo mejor a nuestros clientes.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  
+    <!-- DIVISOR AZUL -->
+    <hr class="divider-blue">
+  
+    <!-- SOPORTE -->
+    <section class="support-section" id="soporte">
+      <h2>Soporte Técnico</h2>
+      <div class="support-box">
+        <p><strong>Soporte técnico</strong></p>
+        <p>Email: soporte@miempresa.com</p>
+        <p><strong class="big-text">0810-1111-2222</strong></p>
+        <h3>Guardia pasiva</h3>
+        <p><strong>(011) 156-999-9999</strong></p>
+        <p>De lunes a viernes a partir de las 22 horas</p>
+        <p>Sábados desde las 14 horas</p>
+        <p>Feriados las 24 horas</p>  
+      </div>
+    </section>
+  
+    <!-- CONTACTO Y NEWSLETTER -->
+    <section class="contact-newsletter" id="contacto">
+      <div class="contact-form">
+        <h2>Contacto</h2>
+        <form action="#">
+          <input type="text" placeholder="Nombre" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Mensaje" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+      <div class="newsletter">
+        <h2>Newsletter</h2>
+        <p>Suscríbete a nuestras novedades:</p>
+        <form action="#">
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </section>
+  
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-left">
+        <a href="#" class="logo">Logo</a>
+      </div>
+      <div class="footer-center">
+        <h4>Encontranos en nuestras redes</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <hr class="footer-divider">
+        <p>Todos los derechos reservados &copy;</p>
+      </div>
+      <div class="footer-right"></div>
+    </footer>
+  
+    <!-- CHATBOT ICONO FIJO -->
+    <div class="chatbot">
+      <i class="fas fa-comment-dots"></i>
+    </div>
+	<a href="#top" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+	
+	<script src="js/script.js"></script>
+  </body>
+</html>
