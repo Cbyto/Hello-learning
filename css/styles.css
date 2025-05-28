@@ -1,0 +1,563 @@
+/* Reseteos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(13, 27, 42, 0.95);
+  color: white;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+/*
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+}
+*/
+
+.logo img {
+  height: 55px;     /* o el tamaño que prefieras */
+  width: auto;
+  display: block;
+}
+
+/* Menú de navegación: lista de enlaces */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+/* Enlaces dentro del nav */
+.nav-links a {
+  color: #e0bb1f;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;  
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff; 		
+}
+
+.cart-icon {
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  /* display: flex; 	 
+  align-items: center; */
+}
+
+/* Botón hamburger oculto por defecto (solo visible en móvil) */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Checkbox menú móvil */
+.menu-toggle {
+  display: none;
+}
+
+/* Estilos para móvil */
+@media (max-width: 768px) {
+	/* Ocultar logo en móvil */
+	.logo {
+		display: none; 
+	}
+
+	/* Mostrar icono hamburger */
+	.hamburger {
+		display: block;
+		display: block;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		font-size: 1.8rem;
+		cursor: pointer;
+		z-index: 1001;
+	}
+
+	/* Nav-links en columna y ocultos inicialmente */
+	.nav-links {
+		position: absolute;
+		top: 60px;
+		left: 0;
+		right: 0;
+		background-color: rgba(13, 27, 42, 0.95);
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1rem;
+		transform: translateY(-200%);
+		transition: transform 0.3s ease;
+		z-index: 1000;
+	}
+	
+	/* Mostrar menú cuando el checkbox esté marcado */
+	.menu-toggle:checked ~ .nav-links {
+		transform: translateY(0);
+	}
+
+	/* Espaciado entre elementos en menú móvil */
+	.nav-links li {
+		margin: 0.5rem 0;
+		width:100%;
+	}
+	
+	 /* Enlaces que ocupan todo el ancho y con padding */
+	.nav-links a {
+		display: block;
+		width: 100%;
+		padding: 0.5rem 0;
+		font-size: 1.3rem; 	/* mantener tamaño */
+	}
+	
+	/* Carrito visible en móvil */
+	.cart-icon {
+		font-size: 1.5rem;
+		margin-left: 0;
+		display: block;
+	}
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* center */
+  text-align: left;             /*center*/
+  padding-left: 5vw;
+  color: white;
+  overflow: hidden;
+  background-image: url('../assets/img/img_hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/*
+.hero-content {
+  position: relative; 
+  z-index: 2; 
+  background-color: rgba(0, 0, 0, 0.4); *
+  border-radius: 8px; 
+}
+*/
+
+.hero-text {
+  display: inline-block;  /* Limita el ancho al contenido (el h1) */
+  text-align: center;     /* Centra el botón dentro del contenedor */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: #e0bb1f;
+  color: black;
+  padding: 1rem 2rem; 	  /* 0.7rem 1.5rem */
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.3rem ;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #c9a613;
+}
+
+/* SECCIÓN DE CARDS */
+.cards-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.cards-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Tarjetas */
+.card {
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer; 					/* para mostrar que es clickeable */
+  user-select: none; 				/* evitar que el texto se seleccione al hacer clic */
+}
+
+/* Imagen dentro de la card */
+.card-image {
+  position: relative; 
+  overflow: hidden; 
+  width: 100%;
+  height: 200px;           /* alto */
+  
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+}
+
+.card-image:hover .card-overlay {
+  opacity: 1;
+}
+
+.card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* ----------- Para acordeón ----------- */
+.card.active {
+  box-shadow: 0 0 15px #e0bb1f;
+  border-color: #e0bb1f;
+}
+
+.card .extra-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background-color: #f9f9f9;
+  padding: 0 1rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+
+.card.active .extra-content {
+  max-height: 200px; /* ajustá según el contenido */
+  padding: 1rem;
+}
+
+/* DIVISOR AZUL ENTRE SECCIONES */
+.divider-blue {
+  border: 0;
+  border-top: 3px solid #0d6efd;
+  width: 100%;
+  margin: 4rem 0;
+}
+
+/* SOPORTE SECTION */
+.support-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.support-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.support-box {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.support-box p {
+  margin-bottom: 0.5rem;
+}
+
+.big-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.support-box h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* CONTACTO Y NEWSLETTER */
+.contact-newsletter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background-color: rgba(0, 123, 255, 0.1); /* Azul claro transparente */
+  gap: 2rem;
+}
+
+.contact-form,
+.newsletter {
+  flex: 1 1 300px;
+  max-width: 400px;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.contact-form input,
+.contact-form textarea,
+.newsletter input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button,
+.newsletter button {
+  background-color: #0d1b2a;
+  color: white;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover,
+.newsletter button:hover {
+  background-color: #1b263b;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #444;
+  color: white;
+  padding: 2rem 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-left {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.footer-center {
+  flex: 2 1 auto;
+}
+
+.footer-center h4 {
+  margin-bottom: 1rem;
+}
+
+.footer-center .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-center .social-icons i {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-center .social-icons i:hover {
+  color: #e0bb1f;
+}
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid white;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.footer-center p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-right {
+  flex: 1 1 auto;
+}
+
+/* CHATBOT ICONO FIJO */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  background-color: #e0bb1f;
+  color: black;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease;
+}
+
+.chatbot:hover {
+  background-color: #c9a613;
+}
+
+
+/* BOTÓN SCROLL TO TOP */
+  .scroll-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: #e0bb1f;
+    color: black;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+  }
+
+  .scroll-to-top:hover {
+    background-color: #c9a613;
+  }
+
+/* Ocultar chatbot en móviles */
+@media (max-width: 768px) {
+  .chatbot {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* NAVBAR responsive */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .logo {
+    display: block; 
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(13, 27, 42, 0.95);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .menu-toggle:checked ~ .nav-links {
+    transform: translateY(0);
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    color: white;
+    text-decoration: none;
+  }
+
+  .cart-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-left: 0;
+  }
+
+  /* CHATBOT oculto en móvil */
+  .chatbot {
+    display: none;
+  }
+
+  /* BOTÓN SCROLL TO TOP */
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 20px;
+    right: 15px;
+  }
+}
