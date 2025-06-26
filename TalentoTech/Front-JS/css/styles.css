@@ -284,7 +284,7 @@ body {
   border: 0;
   border-top: 3px solid #0d6efd;
   width: 100%;
-  margin: 4rem 0;
+  margin: 0.5rem 0;
 }
 
 /* SOPORTE SECTION */
@@ -322,6 +322,71 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* PRODUCTOS */
+.productos-section {
+  padding: 4rem 2rem;
+  background-color: #f0f4f8; /* Color pastel suave */
+  text-align: center;
+}
+
+.productos-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.productos-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.producto-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-width: 280px;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.producto-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.producto-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0d1b2a;
+}
+
+.producto-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #e0bb1f;
+  color: black;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.producto-btn:hover {
+  background-color: #c9a613;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+}
+
+
 
 /* CONTACTO Y NEWSLETTER */
 .contact-newsletter {
