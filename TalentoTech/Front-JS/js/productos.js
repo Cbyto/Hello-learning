@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // listeners
-            //document.querySelectorAll('.detalle-img')
-            //    .forEach(img => img.addEventListener('click', e => {
-            //        const id = e.target.dataset.id;
-            //        window.location.href = `detalle.html?id=${id}`;
-            //    }));
+            document.querySelectorAll('.detalle-img')
+                .forEach(img => img.addEventListener('click', e => {
+                    const id = e.target.dataset.id;
+                    window.location.href = `detalle.html?id=${id}`;
+                }));
             
             //document.querySelectorAll('.agregar-carrito')
             //    .forEach(btn => btn.addEventListener('click', e => {
