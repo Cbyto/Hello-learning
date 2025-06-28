@@ -23,11 +23,44 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // listeners
-            document.querySelectorAll('.detalle-img')
-                .forEach(img => img.addEventListener('click', e => {
+            //document.querySelectorAll('.detalle-img')
+            //    .forEach(img => img.addEventListener('click', e => {
+            //        const id = e.target.dataset.id;
+            //        window.location.href = `detalle.html?id=${id}`;
+            //    }));
+
+            document.querySelectorAll('.detalle-img').forEach(img => {
+                img.addEventListener('click', async e => {
                     const id = e.target.dataset.id;
-                    window.location.href = `detalle.html?id=${id}`;
-                }));
+                    const modal = document.getElementById('modal-detalle');
+                    const contenedor = document.getElementById('detalle-producto');
+
+                    try {
+                        const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+                        const prod = await res.json();
+
+                        contenedor.innerHTML = `
+                            <h2>${prod.title}</h2>
+                            <img src="${prod.image}" alt="${prod.title}" style="max-width: 100%; height: auto; margin: 1rem 0;">
+                            <p><strong>Precio:</strong> $${prod.price.toFixed(2)}</p>
+                            <p>${prod.description}</p>
+                        `;
+
+                        modal.style.display = 'flex';
+                    } catch (err) {
+                        contenedor.innerHTML = '<p>Error al cargar el detalle.</p>';
+                    }
+                });
+            });
+
+            // Cerrar modal al hacer clic en la X o fuera del contenido
+            document.addEventListener('click', e => {
+                const modal = document.getElementById('modal-detalle');
+                if (e.target.classList.contains('cerrar-modal') || e.target.id === 'modal-detalle') {
+                    modal.style.display = 'none';
+                }
+            });
+
             
             //document.querySelectorAll('.agregar-carrito')
             //    .forEach(btn => btn.addEventListener('click', e => {
