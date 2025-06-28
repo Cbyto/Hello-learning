@@ -1,75 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TalentoTech - Productos</title>
-  <link rel="icon" href="../assets/img/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="stylesheet" href="../css/styles.css"/>
-</head>
-<body id="top">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TalentoTech - Productos</title>
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/styles.css"/>
+  </head>
+  <body id="top">
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">
-        <a href="../index.html">
-            <img src="../assets/img/isologo.png" alt="Logo">
-        </a>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+          <a href="../index.html">
+              <img src="../assets/img/isologo.png" alt="Logo">
+          </a>
+      </div>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
+
+      <ul class="nav-links">
+        <li><a href="../index.html#empresa">Empresa</a></li>
+        <li><a href="../index.html#soporte">Soporte Técnico</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+        <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="productos-section">
+      <h1>Nuestros Productos</h1>
+      <p style="max-width: 700px; margin: 1rem auto;">Explorá nuestro catálogo de soluciones digitales pensadas para empresas modernas. Muy pronto podrás encontrar aquí mas opciones.</p>
+
+      <!-- Placeholder para productos futuros -->
+      <div class="productos-container">
+        <div class="producto-card">
+          <img src="assets/img/producto_demo.jpg" alt="Producto demo">
+          <p class="producto-label">Producto demo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-left">
+        <a href="#" class="logo">Logo</a>
+      </div>
+      <div class="footer-center">
+        <h4>Encontranos en nuestras redes</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <hr class="footer-divider">
+        <p>Todos los derechos reservados &copy;</p>
+      </div>
+      <div class="footer-right"></div>
+    </footer>
+
+    <!-- CHATBOT FIJO -->
+    <div class="chatbot">
+      <i class="fas fa-comment-dots"></i>
     </div>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
+    <!-- BOTÓN SCROLL TO TOP -->
+    <a href="#top" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
 
-    <ul class="nav-links">
-      <li><a href="../index.html#empresa">Empresa</a></li>
-      <li><a href="../index.html#soporte">Soporte Técnico</a></li>
-      <li><a href="../index.html#contacto">Contacto</a></li>
-      <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
-    </ul>
-  </nav>
+    <script src="../js/productos.js"></script>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <section class="productos-section">
-    <h1>Nuestros Productos</h1>
-    <p style="max-width: 700px; margin: 1rem auto;">Explorá nuestro catálogo de soluciones digitales pensadas para empresas modernas. Muy pronto podrás encontrar aquí opciones con IA, software personalizado y mucho más.</p>
-
-    <!-- Placeholder para productos futuros -->
-    <div class="productos-container">
-      <div class="producto-card">
-        <img src="assets/img/producto_demo.jpg" alt="Producto demo">
-        <p class="producto-label">Producto demo</p>
+    <!-- Modal para Detalle -->
+    <div id="modal-detalle" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar-modal">&times;</span>
+        <div id="detalle-producto"></div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-left">
-      <a href="#" class="logo">Logo</a>
-    </div>
-    <div class="footer-center">
-      <h4>Encontranos en nuestras redes</h4>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fab fa-telegram"></i></a>
-      </div>
-      <hr class="footer-divider">
-      <p>Todos los derechos reservados &copy;</p>
-    </div>
-    <div class="footer-right"></div>
-  </footer>
-
-  <!-- CHATBOT FIJO -->
-  <div class="chatbot">
-    <i class="fas fa-comment-dots"></i>
-  </div>
-
-  <!-- BOTÓN SCROLL TO TOP -->
-  <a href="#top" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
-
-  <script src="../js/script.js"></script>
-</body>
+  </body>
 </html>
