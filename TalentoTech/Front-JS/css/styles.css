@@ -626,3 +626,174 @@ body {
     right: 15px;
   }
 }
+
+/* === CARRITO === */
+.titulo-carrito {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.carrito-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1400px;    /* antes 1200 */
+  margin: 2rem auto;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+th, td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #6fafeb;
+  font-weight: bold;
+}
+
+td:first-child {
+  text-align: left;
+  max-width: 600px;     /* antes 400 */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.acciones button {
+  padding: 6px 12px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+.acciones button.sumar {
+  background-color: #28a745;    /* verde */
+}
+
+.acciones button.sumar:hover {
+  background-color: #218838;
+}
+
+.acciones button.restar {
+  background-color: #dc3545; /* rojo */
+}
+
+.acciones button.restar:hover {
+  background-color: #c82333;
+}
+
+.resumen {
+  min-width: 260px;
+  flex-shrink: 0;
+  padding: 1.5rem;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 10px;
+  height: fit-content;
+  font-size: 1.1rem;
+  color: #155724;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  /*align-items: center; */        /* centra horizontalmente */
+  text-align: left;         /* centra el texto */
+}
+
+.resumen h2 {
+  text-align: center;     /* Solo el título centrado */
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #155724;
+}
+
+.btn-pagar {
+  background-color: #28a745;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pagar:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .carrito-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  td:first-child {
+    max-width: 100%;
+  }
+
+  .resumen {
+    width: 100%;
+  }
+}
+
+
+.boton-seguir-wrapper {
+  display: flex;
+  justify-content: flex-end;      /* alinea con resumen */
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.btn-volver {
+  display: flex; /*inline-block; */
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #084298;
+}
+
+/* Boton Vaciar Carrito*/
+.btn-vaciar {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-vaciar:hover {
+  background-color: #c9302c;
+}
+
+.vaciar-container {
+  text-align: center;
+  margin-top: 1rem;
+}
