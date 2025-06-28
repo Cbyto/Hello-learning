@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mi Carrito</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <div class="carrito-wrapper">
+            <div style="flex: 3">
+               <h1 class="titulo-carrito">Detalle de Compras</h1>
+                <table id="tabla-carrito">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Precio Unitario</th>
+                            <th>Unidades</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="resumen" id="resumen-carrito">
+                <h2>Resumen</h2>
+                <p><strong>Total de unidades:</strong> <span id="total-unidades">0</span></p>
+                <p><strong>Total a pagar:</strong> U$D<span id="total-precio">0.00</span></p>
+                <button class="btn-pagar">Pagar</button>            
+                
+                <div class="volver-container">
+                    <a href="productos.html" class="btn-volver">Seguir comprando</a>
+                </div>
+                
+                <div class="vaciar-container">
+                    <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
+                </div>
+                
+            </div>
+        </div>
+        <script src="../js/cart.js"></script>
+    </body>
+</html>
