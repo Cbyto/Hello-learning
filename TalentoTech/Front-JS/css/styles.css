@@ -797,3 +797,29 @@ tbody tr:nth-child(even) {
   text-align: center;
   margin-top: 1rem;
 }
+
+/* Boton en Producto -> agregar carrito*/
+.agregar-carrito {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.agregar-carrito:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+.agregar-carrito:active {
+  transform: scale(0.98);
+  background-color: #004999;
+}
+
