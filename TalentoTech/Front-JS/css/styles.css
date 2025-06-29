@@ -387,15 +387,13 @@ body {
   transform: translateY(-5px);
 }
 
-
-
 /* CONTACTO Y NEWSLETTER */
 .contact-newsletter {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 4rem 2rem;
-  background-color: rgba(0, 123, 255, 0.1); /* Azul claro transparente */
+  background-color: rgba(31, 106, 187, 0.301); 
   gap: 2rem;
 }
 
@@ -408,6 +406,10 @@ body {
   border-radius: 8px;
   margin: 1rem;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+/* para que newsletter no se estire como el formulario, queda mal a la vista*/
+.newsletter {
+  align-self: flex-start;
 }
 
 .contact-form input,
@@ -435,6 +437,22 @@ body {
 .newsletter button:hover {
   background-color: #1b263b;
 }
+
+/* Media para los formualrios*/
+@media (max-width: 768px) {
+  .contact-newsletter {
+    flex-direction: column;
+    align-items: center;          /* Opcional, para centrar */
+  }
+
+  .contact-form,
+  .newsletter {
+    width: 100%;
+    max-width: 400px;           /* Que no se vean tan anchos en pantallas pequeñas */
+    margin: 1rem auto;
+  }
+}
+
 
 /* FOOTER */
 .footer {
@@ -517,7 +535,6 @@ body {
 .chatbot:hover {
   background-color: #c9a613;
 }
-
 
 /* BOTÓN SCROLL TO TOP */
   .scroll-to-top {
