@@ -53,15 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // Cerrar modal al hacer clic en la X o fuera del contenido
+            // Cerrar modal al hacer clic en la X o afuera 
             document.addEventListener('click', e => {
                 const modal = document.getElementById('modal-detalle');
                 if (e.target.classList.contains('cerrar-modal') || e.target.id === 'modal-detalle') {
                     modal.style.display = 'none';
                 }
             });
-
-            
+           
             //document.querySelectorAll('.agregar-carrito')
             //    .forEach(btn => btn.addEventListener('click', e => {
             //        agregarAlCarrito(+e.target.dataset.id);
@@ -95,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (item) {
             item.cantidad++;
         } else {
-            // para no re-fetch la info completa, podés guardar sólo id y recuperar detalle en cart
             carrito.push({ id, cantidad: 1 });
         }
         guardarCarrito();
