@@ -32,7 +32,7 @@ body {
 */
 
 .logo img {
-  height: 55px;     /* o el tamaño que prefieras */
+  height: 55px;     
   width: auto;
   display: block;
 }
@@ -326,7 +326,7 @@ body {
 /* PRODUCTOS */
 .productos-section {
   padding: 4rem 2rem;
-  background-color: #f0f4f8; /* Color pastel suave */
+  background-color: #f0f4f8; 
   text-align: center;
 }
 
@@ -347,7 +347,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   overflow: hidden;
-  max-width: 280px;
+  max-width: 300px;
   padding: 1rem;
   cursor:pointer;
   transition: transform 0.3s ease;
@@ -355,7 +355,7 @@ body {
 
 .producto-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -442,7 +442,7 @@ body {
 @media (max-width: 768px) {
   .contact-newsletter {
     flex-direction: column;
-    align-items: center;          /* Opcional, para centrar */
+    align-items: center;          
   }
 
   .contact-form,
@@ -700,7 +700,7 @@ tbody tr:nth-child(even) {
 }
 
 .acciones button.sumar {
-  background-color: #28a745;    /* verde */
+  background-color: #28a745;    
 }
 
 .acciones button.sumar:hover {
@@ -708,7 +708,7 @@ tbody tr:nth-child(even) {
 }
 
 .acciones button.restar {
-  background-color: #dc3545; /* rojo */
+  background-color: #dc3545; 
 }
 
 .acciones button.restar:hover {
@@ -729,8 +729,7 @@ tbody tr:nth-child(even) {
   flex-direction: column;
   gap: 0.8rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  /*align-items: center; */        /* centra horizontalmente */
-  text-align: left;         /* centra el texto */
+  text-align: left;         
 }
 
 .resumen h2 {
@@ -780,7 +779,7 @@ tbody tr:nth-child(even) {
 }
 
 .btn-volver {
-  display: flex; /*inline-block; */
+  display: flex;        /*inline-block; antes*/
   background-color: #0d6efd;
   color: white;
   padding: 0.7rem 1.5rem;
@@ -795,7 +794,7 @@ tbody tr:nth-child(even) {
   background-color: #084298;
 }
 
-/* Boton Vaciar Carrito*/
+/* BOTON VACIAS CARRIRO*/
 .btn-vaciar {
   background-color: #d9534f;
   color: #fff;
@@ -816,7 +815,7 @@ tbody tr:nth-child(even) {
   margin-top: 1rem;
 }
 
-/* Boton en Producto -> agregar carrito*/
+/* BOTON EN PRODUCTO -> AGREGAR CRRITO*/
 .agregar-carrito {
   background-color: #007bff;
   color: #fff;
@@ -841,7 +840,7 @@ tbody tr:nth-child(even) {
   background-color: #004999;
 }
 
-/* Para ventana modal de detallw*/
+/* PARA VENTANA MODAL DETALLW */
 .modal {
   display: none;
   position: fixed;
