@@ -1,5 +1,15 @@
 const BASE_URL = "https://fakestoreapi.com";
 
+// Colores ANSI (no requiere dependencias)
+const colors = {
+  reset: "\x1b[0m",
+  red: "\x1b[31m",
+  green: "\x1b[32m",
+  yellow: "\x1b[33m",
+  blue: "\x1b[34m",
+  magenta: "\x1b[35m",
+};
+
 async function apiFetch(method, path, body) {
   const opts = {
     method,
@@ -9,6 +19,11 @@ async function apiFetch(method, path, body) {
 
   const res = await fetch(`${BASE_URL}${path}`, opts);
   if (!res.ok) {
+    // Captura error genérico si no existe el producto
+    if (res.status === 404) {
+      throw new Error(`No encontrado (HTTP 404!!!)`);
+    }
+
     const text = await res.text().catch(() => "");
     throw new Error(`HTTP ${res.status} ${res.statusText} → ${text || "(sin cuerpo)"}`);
   }
@@ -32,19 +47,19 @@ const [, , rawMethod, ...rest] = process.argv;
 
 function printHelp() {
   console.log(`
-Uso:
-  npm run start GET products
-  npm run start GET products/<id>
-  npm run start POST products <title> <price> <category>
-  npm run start DELETE products/<id>
+    ${colors.yellow}Uso:${colors.reset}
+        npm run start GET products
+        npm run start GET products/<id>
+        npm run start POST products <title> <price> <category>
+        npm run start DELETE products/<id>
 
-Ejemplos:
-  npm run start GET products
-  npm run start GET products/15
-  npm run start POST products T-Shirt-Rex 300 remeras
-  npm run start POST products "T Rex Deluxe" 300 "ropa hombre"
-  npm run start DELETE products/7
-`);
+    ${colors.yellow}Ejemplos:${colors.reset}
+        npm run start GET products
+        npm run start GET products/15
+        npm run start POST products T-Shirt-Rex 300 remeras
+        npm run start POST products "T Rex Deluxe" 300 "ropa hombre"
+        npm run start DELETE products/7
+    `);
 }
 
 function parsePathAndArgs(restArgs) {
@@ -69,6 +84,7 @@ function parsePathAndArgs(restArgs) {
     if (method === "GET") {
       // GET products  |  GET products/<id>
       if (path === "products") {
+        console.log(`${colors.blue}📦 Obteniendo lista completa de productos...${colors.reset}`);
         const data = await apiFetch("GET", "/products");
         // Mostrar una tabla en consola
         console.table(
@@ -85,6 +101,8 @@ function parsePathAndArgs(restArgs) {
       if (path.startsWith("products/")) {
         const id = path.split("/")[1];
         if (!id) throw new Error("Falta <productId>.");
+        console.log(`${colors.blue}🔍 Consultando producto con id=${id}...${colors.reset}`);
+
         const prod = await apiFetch("GET", `/products/${id}`);
         console.log(JSON.stringify(prod, null, 2));
         return;
