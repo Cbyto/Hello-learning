@@ -1,10 +1,8 @@
 import XLSX from 'xlsx';
-import { db } from '../config/firebase.js'; // Reutilizamos conexión existente
-import { collection, addDoc } from "firebase/firestore";
+import { db } from '../config/firebase.js'; 	// Ahora importo la instancia Admin
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Configuración para manejar rutas en ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -12,44 +10,63 @@ const importarDatos = async () => {
   try {
     console.log("📂 Leyendo archivo Excel...");
     
-    // 1. Leer el archivo (Asumiendo que está en la raíz del proyecto)
+    // 1. Leer el archivo
     const rutaArchivo = path.join(__dirname, '../productos.xlsx');
     const workbook = XLSX.readFile(rutaArchivo);
-    
-    // 2. Obtener la primera hoja
     const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
-    
-    // 3. Convertir a JSON (Array de objetos)
     const datos = XLSX.utils.sheet_to_json(sheet);
     
-    console.log(`✅ Se encontraron ${datos.length} productos para importar.`);
+    console.log(`🔍 Procesando ${datos.length} productos con Admin SDK...`);
 
-    // 4. Subir a Firebase
-    const productsCollection = collection(db, "productos");
+    // Referencia directa a la colección
+    const collectionRef = db.collection("productos");
     
-    let cont = 0;
+    let creados = 0;
+    let actualizados = 0;
+
     for (const producto of datos) {
-      // Convertimos los datos numéricos por seguridad
+      // Limpieza de datos. OJO el excel exactamente asi los nombrs
       const productoLimpio = {
         codigo: String(producto.codigo),
         ean: String(producto.ean),
         nombre: producto.nombre,
-        precioVta: Number(producto.precioVta),
+        precioVta: Number(producto.preciovta),
         stock: Number(producto.stock),
         categoria: producto.categoria
       };
 
-      await addDoc(productsCollection, productoLimpio);
-      cont++;
-      console.log(`   -> Importado: ${producto.nombre}`);
+      // 2. Buscar si existe (Sintaxis Admin SDK)
+      // Buscamos documentos donde el campo 'codigo' sea igual al del excel
+      const snapshot = await collectionRef.where('codigo', '==', productoLimpio.codigo).get();
+
+      if (!snapshot.empty) {
+        // --- CASO: ACTUALIZAR ---
+        // Tomamos el primer documento que coincida
+        const docId = snapshot.docs[0].id;
+        
+        // .update() solo cambia los campos que le pase
+        await collectionRef.doc(docId).update(productoLimpio);
+        
+        actualizados++;
+        console.log(`   🔄 Actualizado: ${productoLimpio.codigo} - ${productoLimpio.nombre}`);
+      } else {
+        // --- CASO: CREAR ---
+        // .add() crea un documento nuevo con ID automático
+        await collectionRef.add(productoLimpio);
+        
+        creados++;
+        console.log(`   ✅ Creado: ${productoLimpio.codigo} - ${productoLimpio.nombre}`);
+      }
     }
 
-    console.log(`🚀 ¡Listo! Se importaron ${cont} productos a Firebase.`);
-    process.exit(0); 	// Terminar el proceso
+    console.log(`-----------------------------------`);
+    console.log(`🚀 ¡Listo! Importación finalizada.`);
+    console.log(`🆕 Nuevos: ${creados} | 🔄 Actualizados: ${actualizados}`);
+    process.exit(0);
 
   } catch (error) {
-    console.error("❌ Error al importar:", error);
+    console.error("❌ Error fatal:", error);
     process.exit(1);
   }
 };
