@@ -12,5 +12,9 @@ export const ProductService = {
   },
   deleteProduct: async (id) => {
     return await ProductModel.delete(id);
+  },
+
+  getProductByEan: async (ean) => {
+    return await ProductModel.getByEan(ean);
   }
 };

@@ -33,5 +33,19 @@ export const ProductController = {
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
-  }
+  },
+  getByEan: async (req, res) => {
+    try {
+      const { ean } = req.params; // Leemos el parámetro de la URL
+      const product = await ProductService.getProductByEan(ean);
+
+      if (!product) {
+        return res.status(404).json({ message: "Producto no encontrado con ese EAN" });
+      }
+
+      res.json(product);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }  
 };

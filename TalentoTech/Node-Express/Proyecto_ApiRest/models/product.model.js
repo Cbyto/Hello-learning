@@ -25,5 +25,17 @@ export const ProductModel = {
   async delete(id) {
     await collectionRef.doc(id).delete();
     return { id };
+  },
+
+  async getByEan(ean) {
+    // Usamos .where() para filtrar
+    const snapshot = await collectionRef.where('ean', '==', ean).get();
+
+    // Si no encuentra nada, devolvemos null
+    if (snapshot.empty) return null;
+
+    // Como el EAN debería ser único, tomamos el primer resultado (docs[0])
+    const doc = snapshot.docs[0];
+    return { id: doc.id, ...doc.data() };
   }
 };
