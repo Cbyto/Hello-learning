@@ -104,8 +104,8 @@ Lista todos los productos.
 #### GET `/api/products/:id`
 Obtiene un producto por ID.
 
-#### GET `/api/products/ean/:ean
-Obtiene un producto por EAN
+#### GET `/api/products/ean/:ean`
+Obtiene un producto por EAN.
 
 ---
 
