@@ -3,6 +3,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 // Importar Rutas
 import productRoutes from './routes/products.routes.js';
 import authRoutes from './routes/auth.routes.js';
@@ -12,6 +15,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Middlewares Globales
 app.use(cors());
 app.use(bodyParser.json()); 							// Body parser para JSON
@@ -20,6 +26,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Rutas
 app.use('/api', productRoutes);
 app.use('/auth', authRoutes);
+
+// Para el front
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Middleware para rutas no encontradas (404)
 app.use((req, res, next) => {
