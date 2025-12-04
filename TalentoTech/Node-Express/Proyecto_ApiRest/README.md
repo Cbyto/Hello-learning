@@ -21,13 +21,19 @@ La API permite:
 
 ## 🚀 Tecnologías utilizadas
 
-- Node.js (ES Modules)
-- Express
-- Firebase Admin SDK
-- Firebase Authentication
-- JSON Web Tokens (JWT)
-- XLSX
-- Vercel (Serverless Functions)
+### 🖥️ Frontend (Web)
+* **Interfaz Unificada:** Servida directamente por Express (`/`).
+* **Buscador Inteligente:** Búsqueda rápida por ID interno o Código de Barras (EAN).
+* **Panel de Administración:** Sistema de Login para acceder a funciones protegidas.
+* **Gestión Visual:** Creación y eliminación de productos desde la web.
+* **Tecnologías:** HTML5, Javascript Vanilla, TailwindCSS.
+
+### ⚙️ Backend (API)
+* **Runtime:** Node.js + Express.
+* **Base de Datos:** Firebase Firestore (Admin SDK).
+* **Seguridad:** Autenticación JWT y Variables de Entorno.
+* **Carga Masiva:** Script de importación de Excel con lógica "Upsert".
+* **Deploy:** Optimizado para Vercel (Serverless).
 
 ---
 
@@ -49,6 +55,7 @@ Proyecto_ApiRest/
 │
 ├── package.json
 ├── .env
+├── index.html
 └── API_Documentacion.md
 ```
 
@@ -167,7 +174,12 @@ En **Vercel**, se cargan en *Environment Variables*.
 La API quedará disponible en:
 
 ```
-https://<tu-proyecto>.vercel.app/api/products
+🔗 https://<tu-proyecto>.vercel.app/api/products
+```
+
+Su versión WEB disponible en:
+```
+🔗 https://tt-api-productos.vercel.app/
 ```
 
 ---
