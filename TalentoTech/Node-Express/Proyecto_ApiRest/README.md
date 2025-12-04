@@ -174,7 +174,7 @@ En **Vercel**, se cargan en *Environment Variables*.
 La API quedará disponible en:
 
 ```
-🔗 https://<tu-proyecto>.vercel.app/api/products
+🔗 https://tt-api-productos.vercel.app/api/products
 ```
 
 Su versión WEB disponible en:
