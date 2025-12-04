@@ -100,9 +100,18 @@
         }
 
         function logout() {
+			// Borado del token
             localStorage.removeItem('token');
             mostrarModoAdmin(false);
-            cargarProductos(); 			// Recargamos para quitar botones de eliminar
+            //cargarProductos(); 			// No queda bien que se vean los productos luego.
+			// Limpiamos la pantalla y ponemos el mensaje inicial
+			const contenedor = document.getElementById('lista-productos');
+            contenedor.innerHTML = `
+                <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-10">
+                    <p class="text-gray-500 text-xl">👋 ¡Hola! Presiona <b>"Ver Todos"</b> o realiza una búsqueda para ver el catálogo.</p>
+                </div>
+            `;
+            alert("Has cerrado sesión correctamente.");
         }
 
         function mostrarModoAdmin(activo) {
